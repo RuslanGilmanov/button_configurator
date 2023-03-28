@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    M20 button
+{% endblock %}
+
+{% block main %}
+
+  <style>
+      body{
+        background-position: center right;
+        background-repeat: no-repeat;
+        background-size: 50%;
+        background-attachment: fixed;
+        background-image: url({{ url_for('static', filename='images/Exploded M20.jpg') }});
+        }
+
+  </style>
+
+  <div>
+    <h3 class="selectedButton">SELECT COMPONENTS:</h3><br>
+  </div><br>
+
+  <div>
+    <label class="labelColumn1" for="buttonType">Button Type:</label>
+    <label class="labelColumn2" for="contacts">Contacts:</label>
+  <div>
+    <select type="input" id="buttonType" onchange="removeRedBorder('buttonType');" class="selectColumn1">
+      <option type="disabled" name="Select"></option>
+      <option>M20 European</option>
+      <option>M20 Australian</option>
+    </select>
+
+    <select type="input" id="contacts" onchange="removeRedBorder('contacts');" class="selectColumn2">
+      <option type="disabled"> </option>
+      <option>2 x N/O</option>
+      <option>1 x N/O 1 x N/C</option>
+      <option>Changeover 1 x C/O</option>
+    </select>
+  </div><br><br>
+
+  <div>
+    <label class="labelColumn1" for="led_voltage">LED Voltage:</label>
+    <label class="labelColumn2" for="led_color">LED Color:</label>
+  </div>
+
+  <div>
+    <select type="input" id="led_voltage" name="led_voltage" onchange="removeRedBorder('led_voltage')"; class="selectColumn1">
+      <option type="disabled"> </option>
+      <option>Non Illuminated</option>
+      <option>12VDC (Phone & Alarm)</option>
+      <option>24VDC</option>
+      <option>6VDC</option>
+    </select>
+
+    <select type="input" id="led_color" name="led_color" onchange="removeRedBorder('led_color');" class="selectColumn2">
+      <option type="disabled"> </option>
+      <option>Non Illuminated</option>
+      <option>Opal</option>
+      <option>Red</option>
+      <option>Amber</option>
+      <option>Blue</option>
+      <option>Green</option>
+      <option>Dual Opal</option>
+      <option>Dual Red</option>
+      <option>Dual Amber</option>
+      <option>Dual Blue</option>
+      <option>Dual Green</option>
+      <option>Opal/Red</option>
+      <option>Opal/Amber</option>
+      <option>Opal/Blue</option>
+      <option>Opal/Green</option>
+      <option>Amber/Green</option>
+    </select>
+  </div><br><br>
+
+  <div>
+    <label class="labelColumn1" for="pressel">Pressel:</label>
+    <label class="labelColumn2" for="pressel_finish">Pressel Finish:</label>
+  </div>
+  <div>
+    <select type="input" id="pressel" name="pressel" onchange="removeRedBorder('pressel');" class="selectColumn1">
+      <option type="disabled"> </option>
+      <option name="US90">RSB (Stainless Steel)</option>
+      <option name="US90-15">REB (Coloured Anodized Aluminium)</option>
+    </select>
+
+    <select type="input" id="pressel_finish" onchange="removeRedBorder('pressel_finish');" class="selectColumn2">
+      <option type="disabled"> </option>
+      <option name="stainless_steel">Stainless Steel Linished (RSB)</option>
+      <option name="anodized">Red / Yellow / Green Anodized (REB)</option>
+      <option name="black_anodized">Black Anodized (REB)</option>
+    </select>
+  </div><br><br>
+
+  <div>
+    <label class="labelColumn1" for="legend">Legend:</label>
+  </div>
+  <div>
+    <select type="input" id="legend" onchange="removeRedBorder('legend');" class="selectColumn1">
+      <option type="diabled"> </option>
+      {% for line in legends %}
+        <option value ="{{ line['CODE'] }}">{{ line['LEGEND'] }}</option>
+      {% endfor %}
+    </select>
+  </div><br><br><br><br>
+
+
+  <div>
+    <button class="btn btn-outline-primary" id="btn1" type="button" onclick="checkForBlank()">Generate stock code</button>
+    <button class="btn btn-outline-primary" id="btnReset" type="button" onclick="resetForms()">Reset</button>
+  </div><br><br><br><br><br>
+
+  <div class="output">
+    <p>STOCK CODE: <large type='text' id="output" style="color: white">DEW BUT 0000000000000</large>
+      <button class="btn btn-light" id="btnCopy" type="button" onclick="copyText()">Copy</button>
+    </p>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/M20Button.js') }}"></script>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Hygiene Plus Gallery
+{% endblock %}
+
+{% block main %}
+
+  <div class="row">
+      <div class="column">
+        <img src="{{ url_for('static', filename='images/Gallery/US95 AB Black.png')}}" alt="US95 Anti-Bacterial Black + C3 XR body + Black AB surround" onclick="myFunction(this);">
+      </div>
+      <div class="column">
+        <img src="{{ url_for('static', filename='images/Gallery/US95 AB White.png')}}" alt="US95 Anti-Bacterial White + C3 XR body + Black AB surround" onclick="myFunction(this);">
+      </div>
+      <div class="column">
+        <img src="{{ url_for('static', filename='images/Gallery/US95 AB Yellow.png')}}" alt="US95 Anti-Bacterial Yellow + Black AB surround" onclick="myFunction(this);">
+      </div>
+      <div class="column">
+        <img src="{{ url_for('static', filename='images/Gallery/US95 AM Copper.png')}}" alt="US95 Anti-Microbial Copper + C3 XR body + Chrome surround" onclick="myFunction(this);">
+      </div>
+  </div>
+
+  <div class="container">
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+    <img id="expandedImg" style="width:60%">
+    <div id="imgtext"></div>
+  </div>
+
+
+  <script>
+    function myFunction(imgs) {
+      // Get the expanded image
+      var expandImg = document.getElementById("expandedImg");
+      // Get the image text
+      var imgText = document.getElementById("imgtext");
+      // Use the same src in the expanded image as the image being clicked on from the grid
+      expandImg.src = imgs.src;
+      // Use the value of the alt attribute of the clickable image as text inside the expanded image
+      imgText.innerHTML = imgs.alt;
+      // Show the container element (hidden with CSS)
+      expandImg.parentElement.style.display = "block";
+      }
+  </script>
+
+{% endblock %}

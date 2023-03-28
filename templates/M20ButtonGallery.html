@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    M20 Button Gallery
+{% endblock %}
+
+{% block main %}
+
+  <div class="row">
+      <div class="column">
+        <img src="{{ url_for('static', filename='images/Gallery/M20 REB AUS.png')}}" alt="M20 REB Australian version" onclick="myFunction(this);">
+      </div>
+      <div class="column">
+        <img src="{{ url_for('static', filename='images/Gallery/M20 REB back.png')}}" alt="M20 LED board" onclick="myFunction(this);">
+      </div>
+      <div class="column">
+        <img src="{{ url_for('static', filename='images/Gallery/M20 RSB.png')}}" alt="M20 RSB Australian version" onclick="myFunction(this);">
+      </div>
+      <div class="column">
+        <img src="{{ url_for('static', filename='images/Gallery/M20 side view.png')}}" alt="M20 side view" onclick="myFunction(this);">
+      </div>
+      <div class="column">
+        <img src="{{ url_for('static', filename='images/Gallery/M20 components.png')}}" alt="M20 components" onclick="myFunction(this);">
+      </div>
+  </div>
+
+  <div class="container">
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+    <img id="expandedImg" style="width:60%">
+    <div id="imgtext"></div>
+  </div>
+
+
+  <script>
+    function myFunction(imgs) {
+      // Get the expanded image
+      var expandImg = document.getElementById("expandedImg");
+      // Get the image text
+      var imgText = document.getElementById("imgtext");
+      // Use the same src in the expanded image as the image being clicked on from the grid
+      expandImg.src = imgs.src;
+      // Use the value of the alt attribute of the clickable image as text inside the expanded image
+      imgText.innerHTML = imgs.alt;
+      // Show the container element (hidden with CSS)
+      expandImg.parentElement.style.display = "block";
+      }
+  </script>
+
+  </div>
+
+{% endblock %}

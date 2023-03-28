@@ -1,0 +1,180 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Standard button
+{% endblock %}
+
+{% block main %}
+
+<style>
+  body{
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-attachment: fixed;
+    background-image: url({{ url_for('static', filename='images/Selection.jpg') }});
+  }
+
+</style>
+
+<div>
+  <h3 class="heading">SELECT COMPONENTS:</h3><br>
+</div><br>
+
+<div>
+  <label class="labelColumn1" for="buttonBody">Button Body:</label>
+  <label class="labelColumn2" for="contacts">Contacts:</label>
+<div>
+  <select type="input" id="buttonBody" onchange="removeRedBorder('buttonBody');" class="selectColumn1">
+    <option type="disabled" name="Select"></option>
+    <option>Compact 2</option>
+    <option>Compact 3</option>
+    <option>Compact 3P</option>
+    <option>Compact 2 Micro</option>
+  </select>
+
+  <select type="input" id="contacts" onchange="removeRedBorder('contacts');" class="selectColumn2">
+    <option type="disabled"> </option>
+    <option>2 x N/O</option>
+    <option>2 x N/C</option>
+    <option>1 x N/O 1 x N/C</option>
+    <option>1 x N/O (Micro)</option>
+    <option>1 x N/O (Micro AMP)</option>
+    <option>FLAT CONTACT 2 x N/O</option>
+    <option>Vertical / Horizontal (Micro MTA100)</option>
+    <option>3 Way Vertical (Micro)</option>
+  </select>
+</div><br><br>
+
+<div>
+  <label class="labelColumn1" for="led_voltage">LED Voltage:</label>
+  <label class="labelColumn2" for="led_color">LED Color:</label>
+</div>
+
+<div>
+  <select type="input" id="led_voltage" name="led_voltage" onchange="removeRedBorder('led_voltage')"; class="selectColumn1">
+    <option type="disabled"> </option>
+    <option>Non Illuminated</option>
+    <option>12VDC (Phone & Alarm)</option>
+    <option>24VDC</option>
+    <option>110VDC</option>
+    <option>Multivolt 12-110V AC/DC</option>
+    <option>6VDC</option>
+  </select>
+
+  <select type="input" id="led_color" name="led_color" onchange="removeRedBorder('led_color');" class="selectColumn2">
+    <option type="disabled"> </option>
+    <option>Non Illuminated</option>
+    <option>Opal</option>
+    <option>Red</option>
+    <option>Amber</option>
+    <option>Blue</option>
+    <option>Green</option>
+    <option>Dual Opal</option>
+    <option>Dual Red</option>
+    <option>Dual Amber</option>
+    <option>Dual Blue</option>
+    <option>Dual Green</option>
+    <option>Opal/Red</option>
+    <option>Opal/Amber</option>
+    <option>Opal/Blue</option>
+    <option>Opal/Green</option>
+    <option>Opal/Blue Type B LED (old type with leads)</option>
+    <option>Amber/Green</option>
+  </select>
+</div><br><br>
+
+<div>
+  <label class="labelColumn1" for="surround">Surround Type:</label>
+  <label class="labelColumn2" for="surround_color">Surround Color:</label>
+</div>
+<div>
+  <select type="input" id="surround_type" name="surround_type" onchange="removeRedBorder('surround_type');" class="selectColumn1">
+    <option type="disabled"> </option>
+    <option>Flush</option>
+    <option>Handicap (Standard)</option>
+    <option>Extended</option>
+  </select>
+
+  <select type="input" id="surround_color" name="surround_color" onchange="removeRedBorder('surround_color');" class="selectColumn2">
+    <option type="disabled"> </option>
+    <option name="Chrome">Chrome (Standard)</option>
+    <option name="black_anodized">Black Anodized</option>
+    <option name="brass">Brass</option>
+    <option name="unfinished">Unfinished</option>
+    <option name="a_b_black">Anti-Bacterial Black Plastic</option>
+    <option name="a_b_white">Anti-Bacterial Green Plastic</option>
+    <option name="chrome_exit">Chrome Exit</option>
+  </select>
+</div><br><br>
+
+<div>
+  <label class="labelColumn1" for="pressel">Pressel:</label>
+  <label class="labelColumn2" for="pressel_finish">Pressel Finish:</label>
+</div>
+<div>
+  <select type="input" id="pressel" name="pressel" onchange="removeRedBorder('pressel');" class="selectColumn1">
+    <option type="disabled"> </option>
+    <option name="US90">US90 (non Braille)</option>
+    <option name="US90-15">US90-15 (Braille)</option>
+    <option name="US91">US91 (non Braille)</option>
+    <option name="US91-15">US91-15 (Braille)</option>
+    <option name="US95-15">US95-15 (Braille)</option>
+    <option name="US96-15">US96-15 (Braille)</option>
+    <option name="US95Plus">US95 Plus</option>
+  </select>
+
+  <select type="input" id="pressel_finish" onchange="removeRedBorder('pressel_finish');" class="selectColumn2">
+    <option type="disabled"> </option>
+    <option name="stainless_steel">Stainless Steel Linished (Standard)</option>
+    <option name="mirror_polished">Mirror Polished</option>
+    <option name="brass_linished">Brass Linished</option>
+    <option name="brass_polished">Brass Polished</option>
+    <option name="anodized">Red / Blue / Yellow / White / Green Anodised</option>
+    <option name="black_anodized">Black Anodized (EN)</option>
+    <option name="green_exit">Green Exit (EN)</option>
+    <option name="special_pressel">Bronze / Special Pressel</option>
+  </select>
+</div><br><br>
+
+<div>
+  <label class="labelColumn1" for="pressel_mould_colour">Pressel Mould Colour:</label>
+  <label class="labelColumn2" for="legend">Legend:</label>
+</div>
+<div>
+  <select type="input" id="pressel_mould_colour" onchange="removeRedBorder('pressel_mould_colour');" class="selectColumn1">
+    <option type="disabled"> </option>
+    <option name="opal">Opal (Standard)</option>
+    <option name="red">Red</option>
+    <option name="amber">Amber (Phone & Alarm)</option>
+    <option name="blue">Blue</option>
+    <option name="green">Green</option>
+    <option name="grey">Grey</option>
+    <option name="black">Black</option>
+  </select>
+
+  <select type="input" id="legend" onchange="removeRedBorder('legend');" class="selectColumn2">
+    <option type="diabled"> </option>
+    {% for line in legends %}
+      <option value ="{{ line['CODE'] }}">{{ line['LEGEND'] }}</option>
+    {% endfor %}
+  </select>
+</div><br><br><br><br>
+
+
+<div>
+  <button class="btn btn-outline-primary" id="btn1" type="button" onclick="checkForBlank()">Generate stock code</button>
+  <button class="btn btn-outline-primary" id="btnReset" type="button" onclick="resetForms()">Reset</button>
+</div><br><br><br><br><br>
+
+<div class="output">
+  <p>STOCK CODE: <large type='text' id="output" style="color: white">DEW BUT 0000000000000</large>
+    <button class="btn btn-light" id="btnCopy" type="button" onclick="copyText()">Copy</button>
+  </p>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/standardButton.js') }}"></script>
+
+
+{% endblock %}

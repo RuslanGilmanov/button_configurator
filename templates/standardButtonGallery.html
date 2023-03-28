@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Standard Button Gallery
+{% endblock %}
+
+{% block main %}
+
+  <div class="row">
+    <div class="column">
+      <img src="{{ url_for('static', filename='images/Gallery/C2 body.png')}}" alt="C2 body" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+      <img src="{{ url_for('static', filename='images/Gallery/C2 body back.png')}}" alt="C2 body back" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+      <img src="{{ url_for('static', filename='images/Gallery/C2 body with LED.png')}}" alt="C2 body with LED" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+      <img src="{{ url_for('static', filename='images/Gallery/C3P body.png')}}" alt="C3P body" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+      <img src="{{ url_for('static', filename='images/Gallery/C3P body back.png')}}" alt="C3P body back" onclick="myFunction(this);">
+    </div>
+  </div>
+
+  <div class="container">
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+    <img id="expandedImg" style="width:60%">
+    <div id="imgtext"></div>
+  </div>
+
+  <div class="row">
+  <div class="column">
+    <img src="{{ url_for('static', filename='images/Gallery/C3 body.png')}}" alt="C3 body" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="{{ url_for('static', filename='images/Gallery/C3 body back.png')}}" alt="C3 body back" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="{{ url_for('static', filename='images/Gallery/C3 body with LED.png')}}" alt="C3 body with LED" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="{{ url_for('static', filename='images/Gallery/C3P body with LED.png')}}" alt="C3P body with LED" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="{{ url_for('static', filename='images/Gallery/C2M body.png')}}" alt="C2M body" onclick="myFunction(this);">
+  </div>
+  </div>
+
+  <div class="container">
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+    <img id="expandedImg" style="width:70%; margin:auto">
+    <div id="imgtext"></div>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img src="{{ url_for('static', filename='images/Gallery/C2M body back.png')}}" alt="C2M body back" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+      <img src="{{ url_for('static', filename='images/Gallery/US95 button.png')}}" alt="US95 pressel + C3 body + Chrome surround" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+      <img src="{{ url_for('static', filename='images/Gallery/US91 button.png')}}" alt="US91 pressel + C2 body + Chrome surround" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+      <img src="{{ url_for('static', filename='images/Gallery/US96 button.png')}}" alt="US96 pressel + C3P body + Chrome surround" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+      <img src="{{ url_for('static', filename='images/Gallery/US95 EN button.png')}}" alt="US95 EN pressel + C3 body + Black surround" onclick="myFunction(this);">
+    </div>
+  </div>
+
+    <div class="container">
+      <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+      <img id="expandedImg" style="width:70%; margin:auto">
+      <div id="imgtext"></div>
+    </div>
+
+  <script>
+    function myFunction(imgs) {
+      // Get the expanded image
+      var expandImg = document.getElementById("expandedImg");
+      // Get the image text
+      var imgText = document.getElementById("imgtext");
+      // Use the same src in the expanded image as the image being clicked on from the grid
+      expandImg.src = imgs.src;
+      // Use the value of the alt attribute of the clickable image as text inside the expanded image
+      imgText.innerHTML = imgs.alt;
+      // Show the container element (hidden with CSS)
+      expandImg.parentElement.style.display = "block";
+      }
+  </script>
+
+  </div>
+
+
+{% endblock %}

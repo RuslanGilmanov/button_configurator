@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Gallery
+{% endblock %}
+
+{% block main %}
+
+
+<div class="row row-cols-1 row-cols-md-4">
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="{{url_for('static', filename='images/US91.png')}}" class="card-img-top" alt="US91 button">
+        <div class="card-body">
+          <h5 class="card-title">Standard Buttons</h5>
+          <p class="card-text">A classic button with a clean timeless appearance.
+            The illuminated legend provides clear identification and the buttons can be illuminated in a wide variety of colours.</p>
+            <a href="{{ url_for('standardButtonGallery') }}" class="btn btn-primary">Show images</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="{{url_for('static', filename='images/M20 REB_white.png')}}" class="card-img-top" alt="M20 RSB">
+        <div class="card-body">
+          <h5 class="card-title">M20 Buttons</h5>
+          <p class="card-text">The M-20 has a very low profile and requires no studs to fix to the faceplate.
+            It also has a wide range of illumination options, with both the legend and halo able to be illuminated separately.</p>
+          <a href="{{ url_for('M20ButtonGallery') }}" class="btn btn-primary">Show images</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="{{url_for('static', filename='images/AB_white.jpg')}}" class="card-img-top" alt="AB white button">
+        <div class="card-body">
+          <h5 class="card-title">Hygiene Plus Buttons</h5>
+          <p class="card-text">The Antibacterial and Antimicrobial pushbuttons are manufactured with antimicrobial protection
+            to help prevent the unwanted growth of harmful bacteria.</p>
+            <a href="{{ url_for('hygienePlusGallery') }}" class="btn btn-primary">Show images</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="{{url_for('static', filename='images/US90_Jumbo.jpg')}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Jumbo Buttons</h5>
+          <p class="card-text">The classic circular or square shaped Jumbo braille pushbutton is extra-large, primarily designed
+            for use in larger buildings such as hospitals, airports and shopping centres. </p>
+          <a href="{{ url_for('jumboGallery') }}" class="btn btn-primary">Show images</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
